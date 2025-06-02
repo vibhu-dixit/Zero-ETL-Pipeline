@@ -25,9 +25,9 @@ This project sets up a basic streaming pipeline using **Kafka**, **Apache Spark*
 ---
 ## Create a `.env` file:
 
-AWS_ACCESS_KEY_ID=your-access-key
-AWS_SECRET_ACCESS_KEY=your-secret-key
-AWS_BUCKET_NAME=zero-etl-mesh-demo
+- AWS_ACCESS_KEY_ID=your-access-key
+- AWS_SECRET_ACCESS_KEY=your-secret-key
+- AWS_BUCKET_NAME=Your_Bucket_Name
 ## Start containers:
 
 `docker-compose up -d`
