@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Spark logs
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Checkpoint & output data
+checkpoints/
+*.log
+
+# VS Code
+.vscode/
+
+# Docker
+*.pid
+*.log
+*.sock
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
