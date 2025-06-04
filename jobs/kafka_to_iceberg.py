@@ -13,7 +13,7 @@ spark = SparkSession.builder \
     .appName("KafkaToIceberg") \
     .config("spark.sql.catalog.mycatalog", "org.apache.iceberg.spark.SparkCatalog") \
     .config("spark.sql.catalog.mycatalog.type", "hadoop") \
-    .config("spark.sql.catalog.mycatalog.warehouse", "s3a://zero-etl-mesh-demo/warehouse") \
+    .config("spark.sql.catalog.mycatalog.warehouse", os.getenv("AWS_BUCKET_NAME")) \
     .config("spark.hadoop.fs.s3a.access.key", os.getenv("AWS_ACCESS_KEY_ID")) \
     .config("spark.hadoop.fs.s3a.secret.key", os.getenv("AWS_SECRET_ACCESS_KEY")) \
     .config("spark.hadoop.fs.s3a.endpoint", "s3.amazonaws.com") \
@@ -22,8 +22,9 @@ spark = SparkSession.builder \
 
 raw_df = spark.readStream \
     .format("kafka") \
-    .option("kafka.bootstrap.servers", "localhost:9092") \
+    .option("kafka.bootstrap.servers", "kafka:9092") \
     .option("subscribe", "users") \
+    .option("startingOffsets", "earliest") \
     .load()
 
 parsed_df = raw_df.selectExpr("CAST(value AS STRING)") \
