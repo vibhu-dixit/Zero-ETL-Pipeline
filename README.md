@@ -13,6 +13,16 @@ This project sets up a basic streaming pipeline using **Kafka**, **Apache Spark*
 - ✅ Checkpointing enabled for exactly-once guarantees
 
 ---
+## Week 2: Iceberg Table Setup & Integration
+
+- ✅Set up an Apache Iceberg table (`users`) using the Hadoop catalog.
+- ✅Configured AWS S3 as the Iceberg warehouse with proper IAM and bucket policies.
+- ✅Created Spark job scripts to:
+  - Initialize the Iceberg environment (`open_iceberg_shell.py`)
+  - Query the Iceberg table (`query_users.py`)
+- ✅Successfully read and queried user data ingested from Kafka into Iceberg.
+- ✅Performed DELETE operations on invalid rows (e.g., `id IS NULL`) using SQL.
+- ✅Verified table structure and data on S3 (`AWS_BUCKET_NAME`).
 
 ## Technologies
 - Docker Compose
