@@ -64,6 +64,8 @@ This week involved navigating several complex distributed computing challenges:
 * S3-compatible storage (AWS S3)
 
 ## Project File Structure (Current)
+```
+.
 ├── jobs/
 │   ├── kafka_producer.py      # Produces sample user data to Kafka
 │   ├── kafka_to_iceberg.py    # Spark Structured Streaming consumer (main pipeline)
@@ -76,6 +78,7 @@ This week involved navigating several complex distributed computing challenges:
 ├── .env                       # Environment variables for AWS credentials & S3 bucket
 ├── .gitignore
 └── README.md                  # Project documentation
+```
 ## How to Run
 
 1.  **Clone this repo and navigate into the project directory:**
