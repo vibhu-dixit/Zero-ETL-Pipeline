@@ -30,14 +30,17 @@ services:
         condition: service_healthy
 
   spark:
-    image: bitnami/spark:latest
+    # Use 'build' instead of 'image' to build from Dockerfile
+    build:
+      context: . # Build context is the current directory (where Dockerfile is)
+      dockerfile: Dockerfile # Name of your Dockerfile
     ports:
       - "4040:4040"
     environment:
       HOME: /root
       SPARK_DEFAULTS_CONFIG: ${SPARK_DEFAULTS_CONFIG}
     volumes:
-      - .:/app
+      - .:/app # Mount your local project directory to /app inside the container
     working_dir: /app
     entrypoint: ["sleep", "infinity"]
     user: root

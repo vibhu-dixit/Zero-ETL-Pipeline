@@ -11,6 +11,8 @@ spark = SparkSession.builder \
     .config("spark.hadoop.fs.s3a.secret.key", os.getenv("AWS_SECRET_ACCESS_KEY")) \
     .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
     .config("spark.hadoop.fs.s3a.path.style.access", "true") \
+    .config("spark.sql.default.catalog", "mycatalog") \
     .getOrCreate()
-spark.sql("DELETE FROM mycatalog.db.users WHERE id IS NULL")
-spark.sql("SELECT * FROM mycatalog.db.users").show()
+print("Querying users table with new schema:")
+spark.sql("SELECT id, name, email, signup_ts, age FROM mycatalog.db.users WHERE id IS NOT NULL ORDER BY signup_ts DESC, id DESC LIMIT 20").show(truncate=False)
+spark.stop()
