@@ -69,7 +69,7 @@ This week involved navigating several complex distributed computing challenges:
 │   ├── kafka_to_iceberg.py    # Spark Structured Streaming consumer (main pipeline)
 │   ├── open_iceberg_shell.py  # Initializes/recreates Iceberg table schema
 │   ├── query_users.py         # Queries the Iceberg user table
-│   ├── optimize_iceberg_table.py         # Queries the Iceberg user table
+│   ├── optimize_iceberg_table.py         # Optimizes the Iceberg user table
 │   └── expire_snapshots.py    # Expires old snapshots and associated data
 ├── configs/
 │   └── spark-defaults.conf    # (Optional) Spark configuration defaults
