@@ -20,7 +20,6 @@ def compact_iceberg_table():
 
     try:
         print("Starting Iceberg table compaction for mycatalog.db.users...")
-        # Get the table object from the catalog and call rewrite_data_files()
         spark.sql("CALL mycatalog.system.rewrite_data_files('db.users')")
         print("Iceberg table compaction completed.")
 
