@@ -13,6 +13,6 @@ spark = SparkSession.builder \
     .config("spark.hadoop.fs.s3a.path.style.access", "true") \
     .config("spark.sql.default.catalog", "mycatalog") \
     .getOrCreate()
-print("Querying users table with new schema:")
-spark.sql("SELECT id, name, email, signup_ts, age FROM mycatalog.db.users WHERE id IS NOT NULL ORDER BY signup_ts DESC, id DESC LIMIT 20").show(truncate=False)
+print("--- Time travel to a specific snapshot using VERSION AS OF ---")
+spark.sql("SELECT * FROM mycatalog.db.users VERSION AS OF 27261393872153004").show(truncate=False)
 spark.stop()

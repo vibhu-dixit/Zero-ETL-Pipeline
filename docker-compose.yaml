@@ -39,6 +39,8 @@ services:
     environment:
       HOME: /root
       SPARK_DEFAULTS_CONFIG: ${SPARK_DEFAULTS_CONFIG}
+    depends_on:
+      - kafka
     volumes:
       - .:/app # Mount your local project directory to /app inside the container
     working_dir: /app
