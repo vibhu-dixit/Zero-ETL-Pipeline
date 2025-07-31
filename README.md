@@ -1,3 +1,4 @@
+Link to the python package I have created: PyPI link - [zeroetl](https://pypi.org/project/zeroetl/) and the repository link - [ZeroETL](https://github.com/vibhu-dixit/zeroetl).
 ### **Zero ETL Data Mesh – Project Overview**
 
 This project establishes a foundational streaming data pipeline, creating a **Zero-ETL Data Mesh** architecture. It leverages **Kafka** for high-throughput messaging, **Apache Spark Structured Streaming** for real-time data processing, and **Apache Iceberg** for robust, high-performance table format management on **AWS S3**. All components are orchestrated using **Docker Compose** for a streamlined local development environment.
